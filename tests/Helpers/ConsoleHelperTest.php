@@ -9,20 +9,20 @@ class ConsoleHelperTest extends TestCase
 {
     public function testStringToArray()
     {
-        static::assertEquals([], ConsoleHelper::stringToArray(''));
-        static::assertEquals([], ConsoleHelper::stringToArray(null));
+        $this->assertSame([], ConsoleHelper::stringToArray(''));
+        $this->assertSame([], ConsoleHelper::stringToArray(null));
 
-        static::assertEquals(
+        $this->assertSame(
             ['item1' => 'value1', 'item2' => 'value2'],
             ConsoleHelper::stringToArray('item1:value1,item2:value2')
         );
 
-        static::assertEquals(
+        $this->assertSame(
             ['item1' => 'value1', 'item2' => 'value 2'],
             ConsoleHelper::stringToArray(' item1 :value1 , item2 :value 2')
         );
 
-        static::assertEquals(
+        $this->assertSame(
             ['value1', 'value2', 'value3'],
             ConsoleHelper::stringToArray('value1,value2,value3')
         );

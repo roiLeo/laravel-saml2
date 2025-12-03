@@ -10,6 +10,7 @@ class Saml2AuthTest extends TestCase
     public function tearDown(): void
     {
         \Mockery::close();
+        parent::tearDown();
     }
 
     public function testIsAuthenticated()
@@ -19,7 +20,7 @@ class Saml2AuthTest extends TestCase
 
         $oneLoginAuth->shouldReceive('isAuthenticated')->andReturn(true);
 
-        $this->assertEquals(true, $saml2Auth->isAuthenticated());
+        $this->assertTrue($saml2Auth->isAuthenticated());
     }
 
     public function testLogin()
@@ -29,9 +30,9 @@ class Saml2AuthTest extends TestCase
 
         $oneLoginAuth->shouldReceive('login')->once();
 
-        $saml2Auth->login();
+        $result = $saml2Auth->login();
 
-        $this->addToAssertionCount(1);
+        $this->assertNull($result);
     }
 
     public function testLogout()
@@ -50,9 +51,9 @@ class Saml2AuthTest extends TestCase
             ->with($expectedReturnTo, [], $expectedNameId, $expectedSessionIndex, $expectedStay, $expectedNameIdFormat, $expectedNameIdNameQualifier)
             ->once();
 
-        $saml2Auth->logout($expectedReturnTo, $expectedNameId, $expectedSessionIndex, $expectedNameIdFormat, $expectedStay, $expectedNameIdNameQualifier);
+        $result = $saml2Auth->logout($expectedReturnTo, $expectedNameId, $expectedSessionIndex, $expectedNameIdFormat, $expectedStay, $expectedNameIdNameQualifier);
 
-        $this->addToAssertionCount(1);
+        $this->assertNull($result);
     }
 
     public function testAcsError()
@@ -75,7 +76,7 @@ class Saml2AuthTest extends TestCase
         $oneLoginAuth->shouldReceive('processResponse')->once();
         $oneLoginAuth->shouldReceive('getErrors')->once()->andReturn(null);
         $oneLoginAuth->shouldReceive('isAuthenticated')->once()->andReturn(false);
-        $error =  $saml2Auth->acs();
+        $error = $saml2Auth->acs();
 
         $this->assertNotEmpty($error);
     }
@@ -89,7 +90,7 @@ class Saml2AuthTest extends TestCase
         $oneLoginAuth->shouldReceive('getErrors')->once()->andReturn(null);
         $oneLoginAuth->shouldReceive('isAuthenticated')->once()->andReturn(true);
 
-        $error =  $saml2Auth->acs();
+        $error = $saml2Auth->acs();
 
         $this->assertEmpty($error);
     }
@@ -101,7 +102,7 @@ class Saml2AuthTest extends TestCase
         $oneLoginAuth->shouldReceive('processSLO')->once();
         $oneLoginAuth->shouldReceive('getErrors')->once()->andReturn('errors');
 
-        $error =  $saml2Auth->sls();
+        $error = $saml2Auth->sls();
 
         $this->assertNotEmpty($error);
     }
@@ -113,7 +114,7 @@ class Saml2AuthTest extends TestCase
         $oneLoginAuth->shouldReceive('processSLO')->once();
         $oneLoginAuth->shouldReceive('getErrors')->once()->andReturn(null);
 
-        $error =  $saml2Auth->sls();
+        $error = $saml2Auth->sls();
 
         $this->assertEmpty($error);
     }
@@ -138,7 +139,7 @@ class Saml2AuthTest extends TestCase
             ->with('urn:oid:0.9.2342.19200300.100.1.3')
             ->andReturn(['test@example.com']);
 
-        $this->assertEquals(['test@example.com'], $user->getAttribute('urn:oid:0.9.2342.19200300.100.1.3'));
+        $this->assertSame(['test@example.com'], $user->getAttribute('urn:oid:0.9.2342.19200300.100.1.3'));
     }
 
     public function testParseSingleUserAttribute() {
@@ -153,7 +154,7 @@ class Saml2AuthTest extends TestCase
 
         $user->parseUserAttribute('urn:oid:0.9.2342.19200300.100.1.3', 'email');
 
-        $this->assertEquals($user->email, ['test@example.com']);
+        $this->assertSame($user->email, ['test@example.com']);
     }
 
     public function testParseMultipleUserAttributes() {
@@ -171,8 +172,8 @@ class Saml2AuthTest extends TestCase
             'displayName' => 'urn:oid:2.16.840.1.113730.3.1.241'
         ]);
 
-        $this->assertEquals($user->email, ['test@example.com']);
-        $this->assertEquals($user->displayName, ['Test User']);
+        $this->assertSame($user->email, ['test@example.com']);
+        $this->assertSame($user->displayName, ['Test User']);
     }
 
     /**

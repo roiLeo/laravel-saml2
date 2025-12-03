@@ -10,6 +10,7 @@ use Slides\Saml2\Models\Tenant;
  *
  * @package Slides\Saml2
  */
+#[\AllowDynamicProperties]
 class Saml2User
 {
     /**
