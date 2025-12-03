@@ -1,10 +1,4 @@
-> ## ⚠️ THIS REPOSITORY IS DEPRECATED ⚠️
->
-> **This package is no longer maintained by 24Slides.**
-> It will not receive any further updates, bug fixes, or security patches. We strongly recommend using an alternative, actively maintained SAML package for Laravel.
-> You are free to fork this repository and continue its development independently.
-
-## [Laravel 5.4+] SAML Service Provider 
+## [Laravel 8+] SAML Service Provider 
 
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -19,8 +13,8 @@ This package turns your application into Service Provider with the support of mu
 
 ## Requirements
 
-- Laravel 5.4+
-- PHP 7.0+
+- Laravel 8+
+- PHP 7.4+
 
 ## Getting Started
 
@@ -29,23 +23,7 @@ This package turns your application into Service Provider with the support of mu
 ##### Step 1. Install dependency
 
 ```
-composer require 24slides/laravel-saml2
-```
-
-If you are using Laravel 5.5 and higher, the service provider will be automatically registered.
-
-For older versions, you have to add the service provider and alias to your `config/app.php`:
-
-```php
-'providers' => [
-    ...
-    Slides\Saml2\ServiceProvider::class,
-]
-
-'alias' => [
-    ...
-    'Saml2' => Slides\Saml2\Facades\Auth::class,
-]
+composer require roileo/laravel-saml2
 ```
 
 ##### Step 2. Publish the configuration file.
