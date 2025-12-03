@@ -1,14 +1,13 @@
 {
-    "name": "24slides/laravel-saml2",
+    "name": "roileo/laravel-saml2",
     "type": "library",
     "description": "SAML2 Service Provider integration to your Laravel 5.4+ application, based on OneLogin toolkit",
     "keywords": ["laravel", "saml", "saml2", "onelogin", "sso"],
-    "homepage": "https://github.com/24slides/laravel-saml2",
+    "homepage": "https://github.com/roileo/laravel-saml2",
     "license": "MIT",
     "authors": [
         {
-            "name": "Artem Brezhnev",
-            "email": "brezzhnev@gmail.com"
+            "name": "roileo"
         }
     ],
     "require": {
@@ -21,9 +20,9 @@
         "ramsey/uuid": "^3.8|^4.0"
     },
     "require-dev": {
-        "mockery/mockery": "^0.9.9",
-        "phpunit/phpunit": "^7.5|^9.0",
-        "squizlabs/php_codesniffer": "^2.3"
+        "mockery/mockery": "^0.9.9|^1",
+        "phpunit/phpunit": "^7.5|^9.0|^10|^11|^12",
+        "squizlabs/php_codesniffer": "^2.3|^4"
     },
     "autoload": {
         "psr-4": {
