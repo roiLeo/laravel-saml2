@@ -13,10 +13,7 @@ build:
     coverage:
       tests:
         override:
-          - command: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-            coverage:
-              file: coverage.clover
-              format: clover
+          - command: vendor/bin/phpunit --coverage-text
 
 checks:
   php:
