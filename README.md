@@ -2,7 +2,7 @@
 
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
+[![Build Status][ico-build]][link-build]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Code Coverage][ico-code-coverage]][link-code-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -276,13 +276,13 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://poser.pugx.org/roileo/laravel-saml2/v/stable?format=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/roileo/laravel-saml2.svg?style=flat-square
+[ico-build]: https://scrutinizer-ci.com/g/roiLeo/laravel-saml2/badges/build.png?b=master
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/roileo/laravel-saml2.svg?style=flat-square
 [ico-code-coverage]: https://img.shields.io/scrutinizer/coverage/g/roileo/laravel-saml2.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/roileo/laravel-saml2.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/roileo/laravel-saml2
-[link-travis]: https://travis-ci.org/roileo/laravel-saml2
+[link-packagist]: https://packagist.org/packages/roileo/laravel-saml2#dev-master
+[link-build]: https://scrutinizer-ci.com/g/roiLeo/laravel-saml2/build-status/master
 [link-scrutinizer]: https://scrutinizer-ci.com/g/roileo/laravel-saml2/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/roileo/laravel-saml2
 [link-code-coverage]: https://scrutinizer-ci.com/g/roileo/laravel-saml2
