@@ -105,6 +105,9 @@ trait RendersTenants
         $lines = [];
 
         foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $value = json_encode($value);
+            }
             $lines[] = "$key: $value";
         }
 
